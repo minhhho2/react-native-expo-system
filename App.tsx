@@ -4,6 +4,10 @@ import {StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import {createAppContainer} from "react-navigation";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import HomeScreen from "./src/screens/Home/HomeScreen";
+import LibraryScreen from "./src/screens/Library/LibaryScreen";
+import {TrendingScreen} from "./src/screens/Trending/TrendingScreen";
+import SubscriptionScreen from "./src/screens/Subscription/SubscriptionScreen";
 
 const TabNavigator = createBottomTabNavigator(
 	{
@@ -40,30 +44,6 @@ function getIconName(routeName: string) {
 		default:
 			return "";
 	}
-}
-
-function HomeScreen() {
-	return <View>
-		<Text>Home</Text>
-	</View>
-}
-
-function SubscriptionScreen() {
-	return <View>
-		<Text>Subscription</Text>
-	</View>
-}
-
-function TrendingScreen() {
-	return <View>
-		<Text>Trending</Text>
-	</View>
-}
-
-function LibraryScreen() {
-	return <View>
-		<Text>Library</Text>
-	</View>
 }
 
 const styles = StyleSheet.create({
