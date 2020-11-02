@@ -3,7 +3,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import {createAppContainer} from "react-navigation";
-import {Icon} from "expo/build/removed.web";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const TabNavigator = createBottomTabNavigator(
 	{
@@ -17,9 +17,13 @@ const TabNavigator = createBottomTabNavigator(
 			tabBarIcon: ({tintColor}) => {
 				const {routeName} = navigation.state;
 				let iconName = getIconName(routeName);
-				// return <Icon name={iconName} size={25} color={tintColor} />
+				return <MaterialCommunityIcons name={iconName} size={25} color={tintColor}/>
 			}
-		})
+		}),
+		tabBarOptions: {
+			activeTintColor: "tomato",
+			inactiveTintColor: "grey"
+		}
 	}
 )
 
