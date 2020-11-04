@@ -6,6 +6,7 @@ import React from "react";
 import TrendingScreen from "../../screens/Trending/TrendingScreen";
 import {AntDesign, Feather, MaterialCommunityIcons} from "@expo/vector-icons";
 import {Icon} from "expo/build/removed.web";
+import PayButton from "../PayButton/PayButton";
 
 const Tab = createBottomTabNavigator();
 
@@ -34,6 +35,10 @@ export default function NavigationComponent() {
 		<Tab.Navigator
 			screenOptions={({route}) => ({
 				tabBarIcon: ({color, size}) => {
+
+					if (route.name === "Pay") {
+						return <PayButton/>
+					}
 					// @ts-ignore
 					const {lib: Icon, name} = icons[route.name];
 					return <Icon name={name} color={color} size={size}/>
@@ -49,10 +54,15 @@ export default function NavigationComponent() {
 			}}
 
 		>
-			<Tab.Screen name={"Home"} component={HomeScreen} />
-			<Tab.Screen name={"Subscription"} component={SubscriptionScreen} />
-			<Tab.Screen name={"Trending"} component={TrendingScreen} />
-			<Tab.Screen name={"Library"} component={LibraryScreen} />
+			<Tab.Screen name={"Home"} component={HomeScreen}/>
+			<Tab.Screen name={"Subscription"} component={SubscriptionScreen}/>
+			<Tab.Screen
+				name={"Pay"}
+				component={SubscriptionScreen}
+				options={{title: ""}}
+			/>
+			<Tab.Screen name={"Trending"} component={TrendingScreen}/>
+			<Tab.Screen name={"Library"} component={LibraryScreen}/>
 		</Tab.Navigator>
 	)
 }
