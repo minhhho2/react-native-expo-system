@@ -7,6 +7,8 @@ import TrendingScreen from "../../screens/Trending/TrendingScreen";
 import {AntDesign, Feather, MaterialCommunityIcons} from "@expo/vector-icons";
 import {Icon} from "expo/build/removed.web";
 import PayButton from "../PayButton/PayButton";
+import {NavigationStyles} from "./NavigationStyles";
+import {WHITE} from "../../constants/ColorVariables";
 
 const Tab = createBottomTabNavigator();
 
@@ -45,17 +47,20 @@ export default function NavigationComponent() {
 				},
 			})}
 			tabBarOptions={{
-				style: {
-					backgroundColor: '#131418',
-					borderTopColor: 'rgba(255, 255, 255, 0.2)'
-				},
-				activeTintColor: '#FFFFFF',
+				style: NavigationStyles.tabBackground,
+				activeTintColor: WHITE,
 				inactiveTintColor: '#929292',
 			}}
 
 		>
-			<Tab.Screen name={"Home"} component={HomeScreen}/>
-			<Tab.Screen name={"Subscription"} component={SubscriptionScreen}/>
+			<Tab.Screen
+				name={"Home"}
+				component={HomeScreen}
+			/>
+			<Tab.Screen
+				name={"Subscription"}
+				component={SubscriptionScreen}
+			/>
 			<Tab.Screen
 				name={"Pay"}
 				component={SubscriptionScreen}
