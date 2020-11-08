@@ -1,4 +1,5 @@
 export const COLOR = {
+	DARK_CYAN: '#008B8B',
 	WHITE: '#FFFFFF',
 	BLACK: '#000000',
 }

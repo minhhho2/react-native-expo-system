@@ -5,18 +5,31 @@ import {COLOR, GREY} from "../../constants/ColorVariables";
 export default function LibraryScreen() {
 	return (
 		<View>
-			<View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+			<View>
 
-				{Object.keys(GREY).map(key => {
-					return (
-						<View style={{backgroundColor: GREY[key], width: 100, height: 100}}>
-
-						</View>
-					)
-				})}
+				<Text>Background Colors</Text>
+				<View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+					{Object.keys(GREY).map(key => {
+						return (
+							<View style={{backgroundColor: GREY[key], width: 100, height: 100, justifyContent: 'center', alignItems: 'center'}}>
+								<Text>{GREY[key]}</Text>
+							</View>
+						)
+					})}
+				</View>
 			</View>
-
-			<Text>Component Library Demonstration</Text>
+			<View>
+				<Text>Colors</Text>
+				<View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+					{Object.keys(COLOR).map(key => {
+						return (
+							<View style={{backgroundColor: COLOR[key], width: 100, height: 100, justifyContent: 'center', alignItems: 'center'}}>
+								<Text>{COLOR[key]}</Text>
+							</View>
+						)
+					})}
+				</View>
+			</View>
 		</View>
 	)
 }

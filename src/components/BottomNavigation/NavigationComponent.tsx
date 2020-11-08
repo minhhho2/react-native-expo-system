@@ -6,7 +6,7 @@ import React from "react";
 import {AntDesign, Feather, MaterialCommunityIcons} from "@expo/vector-icons";
 import {Icon} from "expo/build/removed.web";
 import {NavigationStyles} from "./NavigationStyles";
-import {COLOR, WHITE} from "../../constants/ColorVariables";
+import {COLOR, GREY, WHITE} from "../../constants/ColorVariables";
 import SandboxScreen from "../../screens/Sandbox/SandboxScreen";
 
 const Tab = createBottomTabNavigator();
@@ -35,6 +35,7 @@ export default function NavigationComponent() {
 
 	return (
 		<Tab.Navigator
+			initialRouteName={'Library'}
 			screenOptions={({route}) => ({
 				tabBarIcon: ({color, size}) => {
 					// @ts-ignore
@@ -44,8 +45,8 @@ export default function NavigationComponent() {
 			})}
 			tabBarOptions={{
 				style: NavigationStyles.tabBackground,
-				activeTintColor: COLOR.WHITE,
-				inactiveTintColor: '#929292',
+				activeTintColor: COLOR.DARK_CYAN,
+				inactiveTintColor: COLOR.BLACK,
 			}}
 		>
 			<Tab.Screen
