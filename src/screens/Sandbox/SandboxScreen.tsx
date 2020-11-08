@@ -1,8 +1,8 @@
 import {Text, View} from "react-native";
 import React from "react";
 
-export default function TrendingScreen() {
+export default function SandboxScreen() {
 	return <View>
-		<Text>Trending</Text>
+		<Text>Sandbox features</Text>
 	</View>
 }

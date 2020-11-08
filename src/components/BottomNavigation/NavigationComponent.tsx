@@ -3,12 +3,11 @@ import HomeScreen from "../../screens/Home/HomeScreen";
 import SubscriptionScreen from "../../screens/Subscription/SubscriptionScreen";
 import LibraryScreen from "../../screens/Library/LibaryScreen";
 import React from "react";
-import TrendingScreen from "../../screens/Trending/TrendingScreen";
 import {AntDesign, Feather, MaterialCommunityIcons} from "@expo/vector-icons";
 import {Icon} from "expo/build/removed.web";
-import PayButton from "../PayButton/PayButton";
 import {NavigationStyles} from "./NavigationStyles";
-import {WHITE} from "../../constants/ColorVariables";
+import {COLOR, WHITE} from "../../constants/ColorVariables";
+import SandboxScreen from "../../screens/Sandbox/SandboxScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,14 +20,15 @@ const icons = {
 		lib: MaterialCommunityIcons,
 		name: 'youtube-subscription'
 	},
-	Trending: {
-		lib: Feather,
-		name: 'trending-up'
-	},
+
 	Library: {
 		lib: MaterialCommunityIcons,
 		name: 'library-shelves'
-	}
+	},
+	Sandbox: {
+		lib: Feather,
+		name: 'trending-up'
+	},
 }
 
 export default function NavigationComponent() {
@@ -37,21 +37,16 @@ export default function NavigationComponent() {
 		<Tab.Navigator
 			screenOptions={({route}) => ({
 				tabBarIcon: ({color, size}) => {
-
-					if (route.name === "Pay") {
-						return <PayButton/>
-					}
 					// @ts-ignore
 					const {lib: Icon, name} = icons[route.name];
-					return <Icon name={name} color={color} size={size}/>
+					return<Icon name={name} color={color} size={size}/>
 				},
 			})}
 			tabBarOptions={{
 				style: NavigationStyles.tabBackground,
-				activeTintColor: WHITE,
+				activeTintColor: COLOR.WHITE,
 				inactiveTintColor: '#929292',
 			}}
-
 		>
 			<Tab.Screen
 				name={"Home"}
@@ -62,12 +57,11 @@ export default function NavigationComponent() {
 				component={SubscriptionScreen}
 			/>
 			<Tab.Screen
-				name={"Pay"}
-				component={SubscriptionScreen}
-				options={{title: ""}}
-			/>
-			<Tab.Screen name={"Trending"} component={TrendingScreen}/>
-			<Tab.Screen name={"Library"} component={LibraryScreen}/>
+				name={"Library"}
+				component={LibraryScreen}/>
+			<Tab.Screen
+				name={"Sandbox"}
+				component={SandboxScreen}/>
 		</Tab.Navigator>
 	)
 }
