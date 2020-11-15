@@ -6,8 +6,9 @@ import React from "react";
 import {AntDesign, Feather, MaterialCommunityIcons} from "@expo/vector-icons";
 import {Icon} from "expo/build/removed.web";
 import {NavigationStyles} from "./NavigationStyles";
-import {COLOR, GREY, WHITE} from "../../constants/ColorVariables";
-import SandboxScreen from "../../screens/Sandbox/SandboxScreen";
+import {COLOR} from "../../constants/ColorVariables";
+import FeatureScreen from "../../screens/Feature/FeatureScreen";
+import BubbleScreen from "../../screens/Bubbles/BubbleScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +26,7 @@ const icons = {
 		lib: MaterialCommunityIcons,
 		name: 'library-shelves'
 	},
-	Sandbox: {
+	Feature: {
 		lib: Feather,
 		name: 'trending-up'
 	},
@@ -35,9 +36,12 @@ export default function NavigationComponent() {
 
 	return (
 		<Tab.Navigator
-			initialRouteName={'Library'}
+			initialRouteName="Feature"
 			screenOptions={({route}) => ({
 				tabBarIcon: ({color, size}) => {
+					if (!Object.keys(icons).includes(route.name)) {
+						return;
+					}
 					// @ts-ignore
 					const {lib: Icon, name} = icons[route.name];
 					return<Icon name={name} color={color} size={size}/>
@@ -61,8 +65,8 @@ export default function NavigationComponent() {
 				name={"Library"}
 				component={LibraryScreen}/>
 			<Tab.Screen
-				name={"Sandbox"}
-				component={SandboxScreen}/>
+				name={"Feature"}
+				component={FeatureScreen}/>
 		</Tab.Navigator>
 	)
 }

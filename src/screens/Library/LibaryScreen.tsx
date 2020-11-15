@@ -6,7 +6,6 @@ export default function LibraryScreen() {
 	return (
 		<View>
 			<View>
-
 				<Text>Background Colors</Text>
 				<View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
 					{Object.keys(GREY).map(key => {
