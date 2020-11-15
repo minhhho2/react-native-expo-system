@@ -30,16 +30,29 @@ export default function FeatureCard(props: IFeatureCardProps) {
 			? FeatureCardViewStateEnum.BACK
 			: FeatureCardViewStateEnum.FRONT
 	)
-	return (
-		<TouchableOpacity
-			style={[FeatureCardStyles.root]}
-			onPress={() => toggleViewState()}
-		>
-			{viewState === FeatureCardViewStateEnum.FRONT && FrontView(props)}
-			{viewState === FeatureCardViewStateEnum.BACK && BackView(props)}
-		</TouchableOpacity>
 
+	return (
+		<TouchableOpacity style={[FeatureCardStyles.root]} onPress={() => toggleViewState()}>
+			{RenderCardView(props, viewState)}
+		</TouchableOpacity>
 	)
+}
+
+/**
+ * Container component for rendering a specific view of the FeatureCard depending on the view state.
+ * @param props
+ * @param state
+ * @constructor
+ */
+function RenderCardView(props: IFeatureCardProps, state: FeatureCardViewStateEnum) {
+	switch (state) {
+		case FeatureCardViewStateEnum.FRONT:
+			return FrontView(props);
+		case FeatureCardViewStateEnum.BACK:
+			return BackView(props);
+		default:
+			return <View>There was an error displaying the card</View>
+	}
 }
 
 function FrontView(props: IFeatureCardProps) {
@@ -66,7 +79,6 @@ function FrontView(props: IFeatureCardProps) {
 						<Text style={{color: COLOR.WHITE, padding: 20}}>{props.name}</Text>
 					</View>
 				</TouchableOpacity>
-
 			</View>
 		</ImageBackground>
 	)
@@ -78,7 +90,7 @@ function BackView(props: IFeatureCardProps) {
 			imageStyle={FeatureCardStyles.imageBackground}
 			style={FeatureCardStyles.imageBackground}
 			source={{
-				uri: 'https://www.google.com/search?q=abstract+light+background&sxsrf=ALeKk00-6RJZyWLJTf3nGAlLZCJ8jPZFUQ:1605434198715&tbm=isch&source=iu&ictx=1&fir=yhArlbWZAqVXuM%252C1sTQfkzawziIWM%252C_&vet=1&usg=AI4_-kQKhvfTK-pupNsAyTtVMhl12tCyyw&sa=X&ved=2ahUKEwiLov-4pITtAhVcxzgGHUT5DvAQ9QF6BAgLEGY&biw=1018&bih=1084#imgrc=yhArlbWZAqVXuM&imgdii=d0d0llSS9IeixM'
+				uri: 'https://img.freepik.com/free-photo/abstract-polygonal-space-low-poly-dark-background-3d-rendering_7247-223.jpg?size=626&ext=jpg',
 			}}
 		>
 			<Text style={{color: COLOR.WHITE, padding: 20}}>{props.description}</Text>

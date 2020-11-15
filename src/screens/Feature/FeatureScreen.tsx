@@ -5,14 +5,24 @@ import FeatureCard, {IFeatureCardProps} from "../../components/FeatureCard/Featu
 export default function FeatureScreen() {
 	const features: IFeatureCardProps[] = [
 		{
-			name: "Example One",
-			description: 'description',
-			screenUrl: "Bubble",
+			name: "Home",
+			description: 'Example description for home.',
+			screenUrl: "Home",
 		},
 		{
-			name: "Example Two",
-			description: 'description',
-			screenUrl: "Home",
+			name: "Subscription",
+			description: 'Example description for subscription.',
+			screenUrl: "Subscription",
+		},
+		{
+			name: "Library",
+			description: 'Example description for library.',
+			screenUrl: "Library",
+		},
+		{
+			name: "Feature",
+			description: 'Example description for feature.',
+			screenUrl: "Feature",
 		}
 	]
 	return (
