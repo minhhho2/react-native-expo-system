@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity, View} from "react-native";
+import {ScrollView, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 import FeatureCard, {IFeatureCardProps} from "../../components/FeatureCard/FeatureCard";
 
