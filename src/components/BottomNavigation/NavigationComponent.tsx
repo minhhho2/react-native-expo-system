@@ -1,6 +1,6 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import HomeScreen from "../../screens/Home/HomeScreen";
-import SubscriptionScreen from "../../screens/Subscription/SubscriptionScreen";
+import ComponentScreen from "../../screens/Component/ComponentScreen";
 import LibraryScreen from "../../screens/Library/LibaryScreen";
 import React from "react";
 import {AntDesign, Feather, MaterialCommunityIcons} from "@expo/vector-icons";
@@ -8,7 +8,6 @@ import {Icon} from "expo/build/removed.web";
 import {NavigationStyles} from "./NavigationStyles";
 import {COLOR} from "../../constants/ColorVariables";
 import FeatureScreen from "../../screens/Feature/FeatureScreen";
-import BubbleScreen from "../../screens/Bubbles/BubbleScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +16,7 @@ const icons = {
 		lib: AntDesign,
 		name: 'home'
 	},
-	Subscription: {
+	Component: {
 		lib: MaterialCommunityIcons,
 		name: 'youtube-subscription'
 	},
@@ -36,7 +35,7 @@ export default function NavigationComponent() {
 
 	return (
 		<Tab.Navigator
-			initialRouteName="Feature"
+			initialRouteName="Component"
 			screenOptions={({route}) => ({
 				tabBarIcon: ({color, size}) => {
 					if (!Object.keys(icons).includes(route.name)) {
@@ -58,8 +57,8 @@ export default function NavigationComponent() {
 				component={HomeScreen}
 			/>
 			<Tab.Screen
-				name={"Subscription"}
-				component={SubscriptionScreen}
+				name={"Component"}
+				component={ComponentScreen}
 			/>
 			<Tab.Screen
 				name={"Library"}

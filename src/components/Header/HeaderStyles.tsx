@@ -1,14 +1,15 @@
 import {StyleSheet} from "react-native";
+import {COLOR} from "../../constants/ColorVariables";
 
 export const HeaderStyles = StyleSheet.create({
-	header:{
+	container:{
 		height: 60,
 		backgroundColor: "#E52116",
 		justifyContent: "space-between",
 		flexDirection: "row",
 	},
 	title: {
-		color: "#FFFFFF",
+		color: COLOR.WHITE,
 		fontSize: 22,
 		fontWeight: "bold",
 	},
@@ -21,6 +22,8 @@ export const HeaderStyles = StyleSheet.create({
 		alignItems: "center"
 	},
 	headerIcons: {
-		marginHorizontal: 10
+		marginVertical: "auto",
+		marginHorizontal: 10,
+		color: COLOR.WHITE
 	}
 })

@@ -5,21 +5,26 @@ import Icon from "@expo/vector-icons/build/MaterialIcons";
 
 export default function HeaderComponent() {
 
-	let headerIcons = ["videocam", "search", "account-circle"];
-
 	return (
-		<View style={HeaderStyles.header}>
+		<View style={HeaderStyles.container}>
+			<TouchableOpacity>
+				<Icon style={HeaderStyles.headerIcons}
+				      name={"chevron-left"}
+				      size={35}
+				/>
+			</TouchableOpacity>
+
 			<View style={HeaderStyles.titleContainer}>
 				<Text style={HeaderStyles.title}>Youtube</Text>
 			</View>
 
-			<View style={HeaderStyles.rightIcons}>
-				{headerIcons.map(headerIcon => (
-					<TouchableOpacity>
-						<Icon style={HeaderStyles.headerIcons} name={headerIcon} size={35} color={"#FFFFFF"}/>
-					</TouchableOpacity>
-				))}
-			</View>
+			<TouchableOpacity>
+				<Icon style={HeaderStyles.headerIcons}
+				      name="more"
+				      size={35}
+				/>
+			</TouchableOpacity>
 		</View>
 	)
 }
+
