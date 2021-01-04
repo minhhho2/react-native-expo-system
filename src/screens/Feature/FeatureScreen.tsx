@@ -1,13 +1,16 @@
 import {ScrollView, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 import FeatureCard, {IFeatureCardProps} from "../../components/FeatureCard/FeatureCard";
+import Button from "../../components/Button/Button";
 
-export default function FeatureScreen() {
-	const features: IFeatureCardProps[] = [
+export default class FeatureScreen extends React.Component {
+	static URL: string = 'Home';
+
+	public features: IFeatureCardProps[] = [
 		{
-			name: "Home",
-			description: 'Example description for home.',
-			screenUrl: "Home",
+			name: "Wizard",
+			description: 'Step Wizard',
+			screenUrl: "Feature/Wizard",
 		},
 		{
 			name: "Subscription",
@@ -25,15 +28,19 @@ export default function FeatureScreen() {
 			screenUrl: "Feature",
 		}
 	]
-	return (
-		<View>
-			<View>
-				<Text>Features</Text>
-				{features
-					.sort((featureOne: IFeatureCardProps, featureTwo:IFeatureCardProps) => featureOne.name.localeCompare(featureTwo.name))
+
+	render() {
+		return (
+			<ScrollView>
+				{this.features
+					.sort((featureOne: IFeatureCardProps, featureTwo: IFeatureCardProps) => featureOne.name.localeCompare(featureTwo.name))
 					.map(feature => <FeatureCard {...feature} />)
 				}
-			</View>
-		</View>
-	)
+				<Button
+					label={"to component"}
+					onPress={() => this.props.navigation.navigate('Feature/Wizard')}
+				/>
+			</ScrollView>
+		);
+	}
 }

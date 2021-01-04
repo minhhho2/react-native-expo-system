@@ -7,6 +7,7 @@ import {COLOR} from "../../constants/ColorVariables";
 interface IButtonProps {
 	label: string;
 	width?: ButtonWidth;
+	onPress?: () => void;
 }
 
 // Determines the structure of the button
@@ -32,7 +33,7 @@ export enum ButtonColor {
 
 }
 export default function Button(props: IButtonProps) {
-	const {label} = props;
+	const {label, onPress} = props;
 
 	const widthStyle = getWidthStyle(props.width);
 	const displayStyle = getDisplayStyle(props.display);
@@ -40,7 +41,14 @@ export default function Button(props: IButtonProps) {
 	return (
 		//View automatically stretches the width of the screen. Adding flex direction makes it wrap the  text
 		<View style={[widthStyle]}>
-			<TouchableOpacity style={[colorStyle]}>
+			<TouchableOpacity
+				style={[colorStyle]}
+				onPress={() => {
+					if (onPress) {
+						onPress();
+					}
+				}}
+			>
 				<Text style={[]}>{label}</Text>
 			</TouchableOpacity>
 		</View>
