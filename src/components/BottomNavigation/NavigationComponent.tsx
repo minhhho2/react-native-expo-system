@@ -8,6 +8,7 @@ import {Icon} from "expo/build/removed.web";
 import {NavigationStyles} from "./NavigationStyles";
 import {COLOR} from "../../constants/ColorVariables";
 import FeatureScreen from "../../screens/Feature/FeatureScreen";
+import {FeatureStackScreen} from "../../screens/Feature/FeatureScreenStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -65,7 +66,7 @@ export default function NavigationComponent() {
 				component={LibraryScreen}/>
 			<Tab.Screen
 				name={"Feature"}
-				component={FeatureScreen}/>
+				component={FeatureStackScreen}/>
 		</Tab.Navigator>
 	)
 }
