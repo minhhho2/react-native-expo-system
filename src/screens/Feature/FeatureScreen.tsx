@@ -15,20 +15,10 @@ export default class FeatureScreen extends React.Component {
 			screenUrl: "Feature/Wizard",
 		},
 		{
-			name: "Subscription",
-			description: 'Example description for subscription.',
-			screenUrl: "Subscription",
+			name: "Swipeable List",
+			description: 'Swipeable List',
+			screenUrl: "Feature/Swipeable-List",
 		},
-		{
-			name: "Library",
-			description: 'Example description for library.',
-			screenUrl: "Library",
-		},
-		{
-			name: "Feature",
-			description: 'Example description for feature.',
-			screenUrl: "Feature",
-		}
 	]
 
 	render() {
